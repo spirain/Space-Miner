@@ -662,7 +662,7 @@ rockButton.addEventListener("click", () => {
          rockButton.classList.remove("wobble");
          void rockButton.offsetWidth;
          rockButton.classList.add("wobble");
-         starDust += (1 + photonDrillCount + plasmaCutterCount + orbitalCollectorCount + refinerySatelliteCount) * gainMultiplier;
+         starDust += (1 + photonDrillCount + plasmaCutterCount) * gainMultiplier;
          starDustText.innerText = Math.floor(starDust);
 })
 
