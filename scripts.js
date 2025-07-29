@@ -840,7 +840,6 @@ let satelliteInterval = setInterval(() => {
 window.onload = () => {
   loadGame();
   if (!localStorage.getItem("introShown")) {
-    alert("🚀 MISSION BRIEFING:\nYou're stranded in deep space.\nMine stardust, restore ship systems, and return to Earth.");
     localStorage.setItem("introShown", true);
   }
 };
