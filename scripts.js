@@ -195,7 +195,7 @@ function resetGame() {
 
   localStorage.removeItem("spaceMinerSave");
 
-  starDust = 1000000;
+  starDust = 0;
 
   rewardClaimed100 = false;
 rewardClaimedPhotonDrill = false;
