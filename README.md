@@ -3,7 +3,7 @@
 Mine stardust, build machines, and unlock cosmic upgrades in this space-themed clicker game!
 
 ## 🎮 How to Play
-- Open the clicker.html file.
+- Open the index.html file.
 - Click Play and Select your difficulty.
 - Click the rock button to collect **Stardust**
 - Spend Stardust on click upgrades and mining machines to automate income
@@ -18,7 +18,7 @@ Mine stardust, build machines, and unlock cosmic upgrades in this space-themed c
 
 
 ## 📁 Running the Game
-1. Download all files (`clicker.html`, `style.css`, `scripts.js`, Songs Folder, and Images Folder)
+1. Download all files (`index.html`, `style.css`, `scripts.js`, Songs Folder, and Images Folder)
 2. Open `index.html` in your browser (double-click or drag into a browser tab)
 
 ## 🔐 License
