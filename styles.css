@@ -1,0 +1,596 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+body {
+background-image: url('images/space.jpg');
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+background-attachment: fixed;
+color: #f0f0f0;
+  font-size: clamp(18px, 2vw, 24px);
+
+
+}
+* {
+  font-family: 'Audiowide', cursive;
+}
+
+#winContainer {
+     display: none;
+         flex-direction: column;
+}
+#win {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+      flex-direction: column;
+}
+#winTitle {
+    left: 39%;
+    top: 5%;
+    font-size: 50px;
+text-shadow: 0 0 5px #00ffee, 0 0 10px #00ffee; 
+}
+#loseContainer {
+
+    flex-direction: column;
+    display: none;
+}
+#lose {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#win,
+#lose {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* space between top, middle, bottom */
+    align-items: center;
+    padding: 40px 0; /* optional: add some vertical padding */
+    text-align: center;
+}
+
+.button {
+background-color: #00bfff;
+  color: #ffffff;      
+  font-weight: bold;
+  cursor: pointer;
+  width: 130px;
+  height: 30px
+}
+.button:hover {
+    background-color: #ffffff;
+  color: #00bfff;  
+}
+#loseTitle {
+    font-size: 50px;
+text-shadow: 0 0 5px red, 0 0 10px red; 
+}
+#main {
+    display: none;
+}
+#mainMenu {
+
+
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Start at top */
+  padding-top: 220px; /* Space for title */
+  box-sizing: border-box;
+  overflow: hidden;
+  text-align: center;
+  position: relative;
+}
+#play {
+  width: clamp(200px, 30vw, 400px); /* scales between 200px–400px */
+  height: clamp(50px, 8vh, 80px);   /* scales based on viewport height */
+  font-size: clamp(18px, 2.5vw, 28px); /* readable across devices */
+  margin-top: clamp(20px, 4vh, 40px);
+  border-radius: 10px;
+  background-color: #00bfff;
+  color: #ffffff;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 10px #00ffee, 0 0 20px #00ffee88;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#play:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #00ffee, 0 0 30px #00ffeeaa;
+}
+
+#menuButtonWin, #menuButtonLose {
+    width: clamp(200px, 30vw, 400px); /* scales between 200px–400px */
+  height: clamp(50px, 8vh, 80px);   /* scales based on viewport height */
+  font-size: clamp(18px, 2.5vw, 28px); /* readable across devices */
+  margin-top: clamp(20px, 4vh, 40px);
+  border-radius: 10px;
+  background-color: #00bfff;
+  color: #ffffff;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 10px #00ffee, 0 0 20px #00ffee88;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+#menuButtonWin:hover, #menuButtonLose:hover {
+    transform: scale(1.05);
+  box-shadow: 0 0 15px #00ffee, 0 0 30px #00ffeeaa;
+}
+.story {
+  width: 90%;
+  max-width: 900px;
+  max-height: 60vh; /* prevent growing too tall */
+  overflow-y: auto; /* scroll if needed */
+  font-size: clamp(16px, 2vw, 24px);
+  line-height: 1.5;
+  color: #f0f0f0;
+  text-shadow: 0 0 8px #000, 0 0 4px rgba(0,0,0,0.7); 
+  background-color: rgba(0, 0, 0, 0.4); 
+  padding: 16px;
+  border-radius: 8px;
+  margin: 0 auto 20px auto;
+}
+.story::-webkit-scrollbar {
+  width: 8px;
+}
+
+.story::-webkit-scrollbar-track {
+  background: #1a1a1a;
+  border-radius: 4px;
+}
+
+.story::-webkit-scrollbar-thumb {
+  background-color: #00ffeeaa;
+  border-radius: 4px;
+}
+
+#difficulty {
+    display: none;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+        box-sizing: border-box;
+}
+#timer {
+  font-size: clamp(20px, 5vw, 70px);
+    position: fixed;
+    left: 47%;
+    top: 80%;
+    text-shadow: 0 0 5px #00ffee, 0 0 10px #00ffee;
+}
+#difficultyTitle {
+    white-space: nowrap;
+    position: fixed;
+    left: 50%;
+    top: 20px;
+    font-size: clamp(5px, 5vw, 100px);
+        transform: translateX(-50%);
+text-shadow: 0 0 5px #00ffee, 0 0 10px #00ffee;
+padding-bottom: 10px;
+}
+.difficulty-button {
+  padding: 12px 24px;
+  font-size: clamp(30px, 5vw, 50px);
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  margin: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 3px black;
+  max-width: 90vw;
+  max-height: 30vh;
+  margin: 10px 0;
+  box-sizing: border-box;
+}
+
+#easy {
+
+  background-color: #00ffaa;
+  color: black;
+  box-shadow: 0 0 10px #00ffaa, 0 0 20px #00ffaa;
+}
+
+#easy:hover {
+
+  background-color: #66ffcc;
+  box-shadow: 0 0 12px #66ffcc, 0 0 24px #66ffcc;
+}
+
+#medium {
+
+
+  background-color: #ffaa00;
+  color: black;
+  box-shadow: 0 0 10px #ffaa00, 0 0 20px #ffaa00;
+}
+
+#medium:hover {
+  background-color: #ffcc66;
+  box-shadow: 0 0 12px #ffcc66, 0 0 24px #ffcc66;
+}
+
+#hard {
+
+  background-color: #ff4444;
+  color: white;
+  box-shadow: 0 0 10px #ff4444, 0 0 20px #ff4444;
+}
+
+#hard:hover {
+  background-color: #ff6666;
+  box-shadow: 0 0 12px #ff6666, 0 0 24px #ff6666;
+}
+
+.title {
+    position: fixed;
+    left: 50%;
+    top: 20px;
+    font-size: clamp(24px, 4vw, 72px);
+    z-index: 1000;
+        transform: translateX(-50%);
+text-shadow: 0 0 5px #00ffee, 0 0 10px #00ffee;
+}
+#container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#rock {
+  margin: 0 auto;
+    width: 20vw;
+    height: 20vw;
+    border-radius: 50%;
+    cursor: pointer;
+
+    background: radial-gradient(circle at 30% 30%, #aaaaaa, #555555);
+    box-shadow:
+        inset -5px -5px 15px rgba(0, 0, 0, 0.6),
+        inset 5px 5px 15px rgba(255, 255, 255, 0.05),
+        0 0 15px #00ffee66,
+        0 0 30px #00ffee22;
+
+    border: 3px solid #222;
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#rock:hover {
+    transform: scale(1.05);
+    box-shadow:
+        inset -4px -4px 12px rgba(0, 0, 0, 0.5),
+        inset 4px 4px 12px rgba(255, 255, 255, 0.1),
+        0 0 20px #00ffeeaa,
+        0 0 40px #00ffee55;
+}
+
+
+
+#rock:active {
+    transform: scale(0.97);
+    box-shadow:
+        inset 2px 2px 8px rgba(0, 0, 0, 0.5),
+        0 0 8px #00ffee99;
+}
+#hyperDriveTimer {
+    position: absolute;
+  font-size: clamp(20px, 5vw, 70px);
+    top: 100px;
+    left: 20px;
+    color: #00ffee;
+    text-shadow: 0 0 8px #00ffee, 0 0 12px #00ffee;
+
+}
+.wobble {
+    animation: wobble 0.6s ease-in-out;
+}
+@keyframes wobble {
+  0%   { transform: rotate(0deg); }
+  15%  { transform: rotate(15deg); }
+  30%  { transform: rotate(-15deg); }
+  45%  { transform: rotate(10deg); }
+  60%  { transform: rotate(-10deg); }
+  75%  { transform: rotate(5deg); }
+  90%  { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+
+
+#shop {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 20vw;
+    background-color: rgba(20, 20, 30, 0.95);
+    color: #e0f7ff;
+    text-align: center;
+    overflow-y: auto;
+}
+
+p {
+    font-style: italic;
+}
+.buy {
+  width: 100px;
+  font-size: clamp(10px, 2vw, 20px);
+  background-color: #00bfff;
+  color: #ffffff;      
+  font-weight: bold;
+}
+.gray {
+  margin-left: 10px;
+  padding: 6px 10px;
+  width: 100px;
+  font-size: clamp(10px, 2vw, 20px);
+  background-color: gray;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+#saveButton {
+  background-color: #00ffaa;
+  color: black;
+  font-weight: bold;
+  box-shadow: 0 0 8px #00ffaa, 0 0 12px #00ffaa;
+  border: none;
+}
+#resetButton {
+  background-color: #ff4444;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 0 10px #ff4444, 0 0 15px #ff2222;
+  border: none;
+}
+.buy:hover {
+  background-color: #00ffee;
+  color: black;
+  box-shadow: 0 0 10px #00ffee, 0 0 15px #00ffee;
+  cursor: pointer;
+}
+
+#objectivesContainer {
+  background-color: #1a1a1a;
+  padding: 16px;
+  border-radius: 8px;
+  max-width: 200px;
+  margin: 20px auto;
+  color: #fff;
+  font-family: sans-serif;
+}
+
+.objective {
+  display: flex;
+  flex-direction: column;  /* stack vertically */
+  align-items: flex-start; /* align left, NOT center */
+  background: #2a2a2a;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+  /* No width or max-width here! */
+}
+
+.objective span {
+  color: #fff;
+  font-weight: bold;
+  margin-bottom: 6px;
+  text-align: left;
+  width: 100%;  /* fill container width so progress bar aligns */
+}
+
+
+
+
+
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* prevent page scroll */
+  display: flex;
+  color: #f0f0f0;
+  background-image: url('images/space.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: sans-serif;
+}
+
+/* Left sidebar container */
+#leftSidebar {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 400px;
+  height: calc(100vh - 40px); /* full height minus padding */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000;
+  user-select: none;
+}
+
+
+
+/* Stardust counter styles */
+#currency {
+  font-size: clamp(20px, 2vw, 30px);
+  font-weight: bold;
+  color: #c586ff;
+  text-align: left;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #444;
+  margin-bottom: 90px;
+}
+
+/* Objectives container */
+#objectivesContainer {
+    display: flex;
+
+    align-items: center; /* center vertically */
+    flex-direction: column; /* stack vertically */
+  flex-grow: 1; /* fill remaining vertical space */
+  overflow-y: auto; /* scroll if too tall */
+  background-color: rgba(26, 26, 26, 0.85);
+  padding: 16px;
+  border-radius: 8px;
+  color: #fff;
+  max-width: 100%;
+  box-shadow: 0 0 12px #00ffeeaa;
+  margin-top: 20px;
+}
+#objectivesList {
+max-width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none; /* remove default list style */
+  width: 100%; /* fill container width */
+}
+#objective1 *{
+    padding: 5px;
+    margin: 0 auto;
+}
+#objective2 *{
+    padding: 5px;
+    margin: 0 auto;
+}
+#objective3 *{
+    padding: 5px;
+    margin: 0 auto;
+}
+#objective4 *{
+    padding: 5px;
+    margin: 0 auto;
+}
+#objective5 *{
+    padding: 5px;
+    margin: 0 auto;
+}
+#objective6 *{
+    padding: 5px;
+    margin: 0 auto;
+}
+
+#objectivesContainer::-webkit-scrollbar {
+  width: 8px;
+}
+#objectivesContainer::-webkit-scrollbar-track {
+  background: #1a1a1a;
+  border-radius: 4px;
+}
+#objectivesContainer::-webkit-scrollbar-thumb {
+  background-color: #00ffeeaa;
+  border-radius: 4px;
+}
+
+#mainMenu::-webkit-scrollbar {
+  width: 8px;
+}
+#mainMenu::-webkit-scrollbar-track {
+  background: #1a1a1a;
+  border-radius: 4px;
+}
+#mainMenu::-webkit-scrollbar-thumb {
+  background-color: #00ffeeaa;
+  border-radius: 4px;
+}
+
+
+
+
+
+.progress-bar {
+  height: 100%;
+  background-color: #4caf50;
+  width: 0%;
+  transition: width 0.3s ease;
+}
+.objectiveClaim {
+  margin-left: 10px;
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+.objective h3 {
+  margin-bottom: 4px;
+  color: #00ffee;
+  font-size: 1.1rem;
+  text-shadow: 0 0 3px #00ffee66;
+}
+
+.objective-description {
+  font-size: 0.95rem;
+  color: #cccccc;
+  font-style: italic;
+  padding: 4px 0;
+  text-shadow: 0 0 3px #000;
+  margin-bottom: 6px;
+}
+.story p {
+  margin-bottom: 16px;
+}
+
+#play, #menuButtonWin, #menuButtonLose {
+  font-size: clamp(20px, 3vw, 32px);
+  width: clamp(240px, 35vw, 450px);
+  height: clamp(60px, 9vh, 90px);
+}
+
+.title, #winTitle, #loseTitle, #difficultyTitle {
+  font-size: clamp(36px, 6vw, 100px);
+}
+.story {
+  font-size: clamp(18px, 2.5vw, 26px);
+}
+.difficulty-button {
+  font-size: clamp(32px, 6vw, 56px);
+}
+#timer, #hyperDriveTimer {
+  font-size: clamp(28px, 6vw, 80px);
+}
+#currency {
+  font-size: clamp(22px, 2.5vw, 34px);
+}
+.objective h3 {
+  font-size: clamp(18px, 2vw, 24px);
+}
+.objective-description {
+  font-size: clamp(16px, 1.8vw, 22px);
+}
+.noselect, #mainMenu, #difficulty, .button, .story, .title, #winTitle, #loseTitle, #rock, #timer, #currency, .objective, .objective-description {
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}

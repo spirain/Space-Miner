@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Miner</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="mainMenu">
+        <h1 class="title">Space Miner</h1>
+        <div class="story">
+<p>
+  You are <strong>Commander Alex Vega</strong>, a space miner sent to gather Stardust from deep space. Everything was going smoothly... until a strange cosmic storm threw your ship way off course.
+</p>
+<p>
+  Now you’re <strong>lost</strong>, far from Earth, with most of your systems offline. You only have a few minutes of life support left. Your only hope? <strong>Mine enough Stardust</strong> to power up your ship’s hyperdrive and escape.
+</p>
+<p>
+  Use your tools, gather Stardust fast, and upgrade your gear. The faster you click and the more you build, the better your chances.
+</p>
+<p>
+  Can you <strong>get back to Earth</strong> before time runs out? Or will you be <span style="color: crimson;"><strong>trapped in space forever</strong></span>?
+</p>
+
+        </div>
+        <button id="play" class="button">Play</button>
+  </div>
+<div id="difficulty">
+  <h1 id="difficultyTitle" class="title">SELECT YOUR DIFFICULTY</h1>
+  <button id="easy" class="difficulty-button">Easy</button>
+  <button id="medium" class="difficulty-button">Medium</button>
+  <button id="hard" class="difficulty-button">Hard</button>
+</div>
+  <div id="winContainer">
+    <div id="win"><h1 id="winTitle">Congratulations! You made it back to Earth!</h1>
+      <div class="story">
+      <p>
+  As the final stardust particles surged into the hyperdrive core, your ship hummed to life. Lights flickered, the engines roared, and the navigation system locked onto Earth. You done it — against all odds.
+</p>
+<p>
+  The jump was violent. Stars twisted and bent, space folded, and then... calm. You emerged in Earth's orbit, battered but alive. Mission Control scrambled to respond. "Vega, is that you?!"
+</p>
+<p>
+  You had mined the impossible, survived the unthinkable, and returned home a legend. The universe tried to break you — and failed.
+</p>
+  </div>
+      <button class="button" id="menuButtonWin">Go back to menu</button>
+  </div>
+  </div>
+  <div id="loseContainer">
+    <div id="lose"><h1 id="loseTitle">YOU LOSE! You ran out of oxygen!</h1>
+      <div class="story">
+      <p>
+  The mining systems sputtered. Your oxygen reserves dipped into the red. With every passing second, the cold grip of space drew closer. You gave everything to gather enough Stardust... but time ran out.
+</p>
+<p>
+  In the silence of deep space, your ship drifted — a grave marker for a miner who dared to defy the cosmos. Earth never received your final transmission.
+</p>
+<p>
+  But legends aren't only written by those who return. Somewhere in the galaxy, a lonely distress beacon still pulses, telling the story of Commander Vega — the one who nearly escaped.
+</p>
+</div>
+
+      <button class="button" id="menuButtonLose">Go back to menu</button>
+    </div>
+  </div>
+    <main id="main">
+    <h1 class="title">Space Miner</h1>
+     <h2 id="timer"></h2>
+    <div id ="leftSidebar">
+    <div id="currency">Stardust collected: ✨<span id="starDust"></span></div>
+          <div id="objectivesContainer" class="objectives-panel">
+  <h2>Objectives</h2>
+<ul id="objectivesList">
+
+  <li class="objective" id="objective1">
+    <h3>Collect 100 Stardust</h3>
+    <p class="objective-description">"Life support is barely holding. Grab 100 Stardust to keep breathing and take control of your ship."</p>
+    <div><span id="starDust100"></span>/100</div>
+      <div>Reward: 50 Stardust</div>
+    <button id="starDust100Claim" class="gray">Claim</button>
+  </li>
+
+  <li class="objective" id="objective2">
+    <h3>Buy a Photon Drill</h3>
+    <p class="objective-description">"Upgrade to the Photon Drill and mine Stardust faster, fueling your way off this rock."</p>
+    <div><span id="photonDrill100"></span>/1</div>
+    <div>Reward: +10% Multiplier</div>
+    <button id="photonDrill100Claim" class="gray">Claim</button>
+  </li>
+  
+
+  <li class="objective" id="objective3">
+    <h3>Buy a Mining Drone</h3>
+    <p class="objective-description">"Deploy drones to work nonstop so Stardust keeps pouring in even when you are catching your breath."</p>
+        <div><span id="miningDrone100"></span>/1</div>
+        <div>Reward: +5% Multiplier</div>
+    <button id="miningDrone100Claim" class="gray">Claim</button>
+  </li>
+  <li class="objective" id="objective4">
+    <h3>Reach 1000 Stardust</h3>
+    <p class="objective-description">"Power is coming back online and your ship starts gearing up for the first big jump."</p>
+      <div><span id="starDust1000"></span>/1000</div>
+    <div>Reward: +1 Plasma Cutter</div>
+    <button id="starDust1000Claim" class="gray">Claim</button>
+  </li>
+
+  <li class="objective" id="objective5">
+    <h3>Own 3 Mining Drones</h3>
+    <p class="objective-description">"Three drones buzzing away means steady Stardust flow which is your ticket to survival."</p>
+    <div><span id="objective5Count"></span>/3</div>
+      <div>Reward: +15% Multiplier</div>
+    <button id="objective5Claim" class="gray">Claim</button>
+  </li>
+
+  <li class="objective" id="objective6">
+    <h3>Reach 10000 StarDust</h3>
+    <p class="objective-description">"You have stockpiled massive Stardust and it is time to boost ship systems for the ultimate escape."</p>
+    <div><span id="objective6Count"></span>/10000</div>
+      <div>Reward: +50% Multiplier</div>
+    <button id="objective6Claim" class="gray">Claim</button>
+  </li>
+
+  <li class="objective" id="objective7">
+    <h3>Unlock HyperDrive</h3>
+    <p class="objective-description">"HyperDrive unlocked so you can mine harder, jump faster, and get one step closer to Earth."</p>
+            <div><span id="objective7Count"></span>/1</div>
+    <div>Reward: 5000 Stardust</div>
+    <button id="objective7Claim" class="gray">Claim</button>
+  </li>
+    <li class="objective" id="objective8">
+    <h3>Buy Singularity Breaker</h3>
+    <p class="objective-description">"The Singularity Breaker fires up your jump drive for the final push to blast back home."</p>
+            <div><span id="objective8Count"></span>/1</div>
+    <div>Reward: GO BACK TO EARTH</div>
+    <button id="objective8Claim" class="gray">Claim</button>
+  </li>
+</ul>
+
+</div>
+</div>
+    <div id="hyperDriveTimer"></div>
+    <div id="floatingPopups" style="position: fixed; pointer-events: none; top: 0; left: 0; width: 100%; height: 100%; overflow: visible; z-index: 2000;"></div>
+    <div id="container">
+    <button id="rock"></button>
+    </div>
+    <div id="shop">
+        <h1 id="shopTitle">Shop</h1>
+          <div id="saveLoadResetButtons" style="padding: 10px;">
+    <button id="saveButton" class="buy">Save Game</button>
+    <button id="resetButton" class="buy">Reset Game</button>
+  </div>
+
+        <hr>
+        <h3>Photon Drill</h3>
+        <p>+1 Stardust per click</p>
+        <p>Cost: <span id="photonCost"></span> Stardust</p>
+        <button id="photonDrill" class="buy">Buy</button>
+        <p>Owned: <span id="photonOwned">0</span></p>
+
+        <hr>
+        <h3>Mining Drone</h3>
+        <p>+5 Stardust per second</p>
+        <p>Cost: <span id="miningDroneCost"></span> Stardust</p>
+        <button id="miningDrone" class="buy">Buy</button>
+        <p>Owned: <span id="miningDroneOwned">0</span></p>
+        
+        <hr>
+        <h3>Plasma Cutter</h3>
+        <p>+7 Stardust per click</p>
+        <p>Cost: <span id="plasmaCutterCost"></span> Stardust</p>
+        <button id="plasmaCutter" class="buy">Buy</button>
+        <p>Owned: <span id="plasmaCutterOwned">0</span></p>
+
+        <hr>
+        <h3>Upgrade Matrix</h3>
+        <p>Upgrades cost 10% less</p>
+        <p>Cost: 1,000 Stardust</p>
+        <p>Owned: <span id="upgradeMatrixOwned">0</span> <span class="gray">Max: 1</span></p>
+        <button id="upgradeMatrix" class="buy">Buy</button>
+
+        <hr>
+        <h3>Automated Bot</h3>
+        <p>	+20 Stardust per second</p>
+        <p>Cost: <span id="automatedBotCost"></span> Stardust</p>
+        <button id="automatedBot" class="buy">Buy</button>
+        <p>Owned: <span id="automatedBotOwned">0</span></p>
+
+        <hr>
+        <h3>Energy Core</h3>
+        <p>+15% to all Stardust gains</p>
+        <p>Cost: 4,000 Stardust</p>
+        <p>Owned: <span id="energyCoreOwned">0</span> <span class="gray">Max: 1</span></p>
+        <button id="energyCore" class="buy">Buy</button>
+
+        <hr>
+        <h3>Orbital Collector</h3>
+        <p>+75 Stardust per second</p>
+          <p>Cost: <span id="orbitalCollectorCost"></span> Stardust</p>
+        <button id="orbitalCollector" class="buy">Buy</button>
+        <p>Owned: <span id="orbitalCollectorOwned">0</span></p>
+
+        <hr>
+        <h3>Refinery Satellite</h3>
+        <p>+400 Stardust per second</p>
+          <p>Cost: <span id="refinerySatelliteCost"></span> Stardust</p>
+        <button id="refinerySatellite" class="buy">Buy</button>
+        <p>Owned: <span id="refinerySatelliteOwned">0</span></p>
+
+        <hr>
+        <h3>Hyper drive Reactor</h3>
+        <p>Double passive income for 5 minutes</p>
+        <p>Cost: <span id="hyperDriveCost"></span> Stardust</p>
+        <button id="hyperDrive" class="buy">Buy</button>
+
+        <hr>
+        <h3>Singularity Breaker</h3>
+        <p>GO BACK TO EARTH</p>
+        <p>Cost: <span id="singularityBreakerCost"></span> Stardust</p>
+        <button id="singularityBreaker" class="buy">Buy</button>
+        <p>Owned: <span id="singularityBreakerOwned">0</span></p>
+    </div>
+    </main>
+    <audio id="gameMusic" autoplay></audio>
+    <script src="scripts.js"></script>
+</body>
+</html>   
