@@ -34,6 +34,7 @@ menuButtonWin.addEventListener("click", () => {
     audio.currentTime = 0;
     audio.src = "";
     resetGame();
+        clearInterval(musicInterval);
     playMainMenuMusic();
 });
 menuButtonLose.addEventListener("click", () => {
@@ -45,7 +46,7 @@ menuButtonLose.addEventListener("click", () => {
     audio.pause();
     audio.currentTime = 0;
     audio.src = "";
-
+        clearInterval(musicInterval);
     playMainMenuMusic();
 });
 
@@ -854,3 +855,6 @@ function playMainMenuMusic() {
 window.addEventListener("load", () => {
      playMainMenuMusic();
 })
+document.addEventListener("click", () => {
+  playMainMenuMusic();
+}, { once: true });
